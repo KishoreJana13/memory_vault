@@ -1,0 +1,157 @@
+Light Futuristic Theme
+:root {
+  --bg-color: #c7fcfa; /* Light Background */
+  --primary-color: #00d4ff; /* Neon Cyan */
+  --secondary-color: #ff00ff; /* Neon Magenta */
+  --text-color: #222831; /* Dark Text */
+  --nav-bg: rgba(255, 255, 255, 0.6); /* Glassmorphism Effect */
+  --border-radius: 12px;
+}
+
+/* Smooth Font & Light Background */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Orbitron", sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+/* App container */
+.App {
+  text-align: center;
+}
+
+/* Futuristic Navigation Menu */
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px); /* Glassmorphism */
+  border-radius: var(--border-radius);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Navigation Logo */
+.nav-logo {
+  height: 80px;
+  width: auto;
+  transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+}
+
+.nav-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0px 0px 10px var(--primary-color));
+}
+
+/* Navigation Links containers */
+.nav-links-left, .nav-links-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Navigation Links */
+.nav-link {
+  padding: 12px 18px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: bold;
+  border-radius: var(--border-radius);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transition: all 0.4s ease-in-out;
+  z-index: -1;
+}
+
+.nav-link:hover::before {
+  left: 0;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+/* Button styled as nav-link */
+button.nav-link {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: "Orbitron", sans-serif;
+}
+
+/* Navbar Title */
+.nav-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* Logo & Title Container */
+.logo-title-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-title-container .nav-logo {
+  margin-right: 12px;
+}
+
+/* Specific styling for navigation buttons */
+#queryMemories, #addMemory, #recallMe, #backToMemoryVault {
+  font-size: 18px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: var(--border-radius);
+  background: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 4px 15px rgba(0, 212, 255, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+#queryMemories:hover, #addMemory:hover, #recallMe:hover, #backToMemoryVault:hover {
+  background: var(--secondary-color);
+  box-shadow: 0px 4px 20px rgba(255, 0, 255, 0.6);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Header Title Styling */
+#memoryVault, #recallMeTitle {
+  font-size: 34px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--text-color);
+  text-shadow: 2px 2px 10px rgba(0, 212, 255, 0.4);
+  margin-bottom: 20px;
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+#memoryVault:hover, #recallMeTitle:hover {
+  text-shadow: 3px 3px 15px rgba(255, 0, 255, 0.6);
+}
+
+/* Placeholder for nav layout balance */
+.nav-link-placeholder {
+  width: 120px;
+}
+
+/* RecallMe container */
+.recall-container {
+  padding: 20px;
+  margin-top: 20px;
+}

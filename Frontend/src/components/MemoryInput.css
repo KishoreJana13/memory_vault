@@ -1,0 +1,239 @@
+.journal-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.paper-effect {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.paper-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 40px;
+  height: 100%;
+  width: 2px;
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.memory-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.memory-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.date {
+  font-family: 'Courier New', monospace;
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.journal-form {
+  position: relative;
+}
+
+.textarea-wrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(transparent 19px, #e8e8e8 20px);
+  background-size: 100% 20px;
+  pointer-events: none;
+}
+
+.journal-textarea {
+  width: 100%;
+  min-height: 300px;
+  padding: 0;
+  font-size: 16px;
+  line-height: 20px;
+  border: none;
+  background: transparent;
+  resize: vertical;
+  color: #2c3e50;
+  font-family: 'Courier New', monospace;
+  padding: 0 1rem;
+  z-index: 1;
+  position: relative;
+}
+
+.journal-textarea:focus {
+  outline: none;
+}
+
+.journal-textarea::placeholder {
+  color: #95a5a6;
+  font-style: italic;
+}
+
+.character-counter {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.counter-bubble {
+  background: #2c3e50;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.counter-bubble:hover {
+  opacity: 1;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.save-button {
+  background: #2c3e50;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.save-button:not(:disabled):hover {
+  background: #34495e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.2);
+}
+
+.save-button:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ink-drop {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  animation: drip 1s infinite;
+}
+
+.status-popup {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  animation: slideUp 0.3s ease-out;
+  z-index: 1000;
+}
+
+.status-popup.success {
+  background: #27ae60;
+  color: white;
+}
+
+.status-popup.error {
+  background: #e74c3c;
+  color: white;
+}
+
+.status-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status-icon {
+  font-size: 1.5rem;
+}
+
+@keyframes drip {
+  0% { transform: translateY(-10px); opacity: 0; }
+  50% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(10px); opacity: 0; }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+/* Add some responsive design */
+@media (max-width: 600px) {
+  .paper-effect {
+    padding: 1rem;
+  }
+
+  .memory-header h1 {
+    font-size: 2rem;
+  }
+
+  .journal-textarea {
+    min-height: 200px;
+  }
+}
+
+/* Custom scrollbar */
+.journal-textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.journal-textarea::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.journal-textarea::-webkit-scrollbar-thumb {
+  background: rgba(44, 62, 80, 0.3);
+  border-radius: 4px;
+}
+
+.journal-textarea::-webkit-scrollbar-thumb:hover {
+  background: rgba(44, 62, 80, 0.5);
+}
